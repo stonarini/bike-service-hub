@@ -1,0 +1,103 @@
+{
+    "$jsonSchema": {
+        "type": "object",
+        "required": [
+            "category",
+            "weight",
+            "frame",
+            "fork",
+            "wheels",
+            "price",
+            "wheelSize",
+            "brakes",
+            "groupset",
+            "drivetrain",
+            "suspension",
+            "travel",
+            "name",
+            "brand"
+        ],
+        "additionalProperties": false,
+        "properties": {
+            "_id": {},
+            "category": {
+                "type": "string",
+                "description": "Bike's Category"
+            },
+            "weight": {
+                "type": "string",
+                "description": "Bike's Weight"
+            },
+            "frame": {
+                "type": "string",
+                "description": "Entity that published the book"
+            },
+            "fork": {
+                "type": "string",
+                "description": "Unique book's identifier"
+            },
+            "wheels": {
+                "type": "string",
+                "description": "Day when the book was published"
+            },
+            "price": {
+                "type": "string",
+                "description": "Day when the book was published"
+            },
+            "wheelSize": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "description": "Category name"
+                },
+                "description": "Array of categories of the book"
+            },
+            "brakes": {
+                "type": "string",
+                "description": "Saga/Collection of which the book is part of"
+            },
+            "groupset": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "description": "Groupset name"
+                },
+                "description": "Availables Groupsets"
+            },
+            "drivetrain": {
+                "type": "string",
+                "description": "Drivetrain spec"
+            },
+            "suspension": {
+                "type": "string",
+                "description": "Suspension Type"
+            },
+            "travel": {
+                "type": "object",
+                "required": [
+                    "front",
+                    "rear"
+                ],
+                "properties": {
+                    "front": {
+                        "type": "string",
+                        "description": "Front Travel"
+                    },
+                    "rear": {
+                        "type": "string",
+                        "description": "Rear Travel"
+                    }
+                },
+                "description": "Suspension Travel"
+            },
+            "name": {
+                "type": "string",
+                "description": "Bike's Name"
+            },
+            "brand": {
+                "type": "string",
+                "description": "Bike's Brand"
+            }
+        }
+    }
+}
