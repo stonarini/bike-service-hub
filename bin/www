@@ -31,7 +31,7 @@ server.on('listening', onListening);
 
 process.on('SIGINT', () => {
   console.error("shutdown");
-  app.locals.DB.close()
+  app.locals.DBclient.close()
   process.exit(0);
 })
 
@@ -72,12 +72,10 @@ function onError(error) {
   switch (error.code) {
     case 'EACCES':
       console.error(bind + ' requires elevated privileges');
-      DB.close()
       process.exit(1);
       break;
     case 'EADDRINUSE':
       console.error(bind + ' is already in use');
-      DB.close()
       process.exit(1);
       break;
     default:

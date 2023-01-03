@@ -9,8 +9,8 @@ var bikesRouter = require('./routes/bikes');
 var app = express();
 
 initDB().then((DB) => {
-  app.locals.DB = DB
-  console.log(DB)
+  app.locals.DB = DB.db('bikes').collection('catalog')
+  app.locals.DBclient = DB
 })
 
 app.use(logger('dev'));
