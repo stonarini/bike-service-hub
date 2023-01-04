@@ -1,0 +1,17 @@
+{
+	"parser": "@babel/eslint-parser",
+	"parserOptions": {
+		"sourceType": "script",
+		"allowImportExportEverywhere": false,
+		"codeFrame": false,
+		"requireConfigFile": false
+	},
+	"extends": ["prettier"],
+	"env": {
+		"browser": false
+	},
+	"rules": {
+		"max-len": ["error", { "code": 200 }],
+		"no-return-assign": ["off"]
+	}
+}

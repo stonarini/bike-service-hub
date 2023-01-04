@@ -1,34 +1,40 @@
 {
-  "name": "bike-service-hub",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Aggregator service for bikes",
-  "main": "index.js",
-  "scripts": {
-    "start": "node ./bin/www",
-    "lint": "eslint src/js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/stonarini/bike-service-hub.git"
-  },
-  "keywords": [
-    "bike",
-    "aggregator",
-    "express",
-    "node"
-  ],
-  "author": "stonarini",
-  "license": "ISC",
-  "dependencies": {
-    "debug": "~2.6.9",
-    "express": "^4.18.2",
-    "http-errors": "~1.6.3",
-    "mongodb": "^4.13.0",
-    "morgan": "~1.9.1"
-  },
-  "devDependencies": {
-    "eslint": "^8.31.0",
-    "prettier": "2.8.1"
-  }
+	"name": "bike-service-hub",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Aggregator service for bikes",
+	"main": "index.js",
+	"scripts": {
+		"setup": "git config --local core.hooksPath .githooks/",
+		"start": "node ./bin/www",
+		"start dev": "nodemon ./bin/www",
+		"lint": "eslint --fix ./",
+		"format": "prettier -w ./"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/stonarini/bike-service-hub.git"
+	},
+	"keywords": [
+		"bike",
+		"aggregator",
+		"express",
+		"node"
+	],
+	"author": "stonarini",
+	"license": "ISC",
+	"dependencies": {
+		"@babel/eslint-parser": "^7.19.1",
+		"debug": "~2.6.9",
+		"express": "^4.18.2",
+		"http-errors": "~1.6.3",
+		"mongodb": "^4.13.0",
+		"morgan": "~1.9.1"
+	},
+	"devDependencies": {
+		"eslint": "^8.31.0",
+		"eslint-config-prettier": "^8.6.0",
+		"nodemon": "^2.0.20",
+		"prettier": "2.8.1"
+	}
 }
