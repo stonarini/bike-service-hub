@@ -1,7 +1,6 @@
 const { validateBike } = require("./validation");
 
 module.exports = {
-
 	findById: (req, res) => {
 		const id = req.params.id;
 		req.app.locals.DB.findById(id)
@@ -29,6 +28,5 @@ module.exports = {
 		req.app.locals.DB.delete(id)
 			.then(r => (r.deletedCount ? res.status(200).json({ deleted: id }) : res.status(404).json({ error: "not found" })))
 			.catch(error => console.error(error));
-	}
-
-}
+	},
+};

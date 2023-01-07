@@ -1,5 +1,5 @@
 const express = require("express");
-const bikeController = require("../controllers/bike")
+const bikeController = require("../controllers/bike");
 const router = express.Router();
 
 router.get("/:id", bikeController.findById);

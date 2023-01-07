@@ -8,7 +8,7 @@
 		"setup": "git config --local core.hooksPath .githooks/",
 		"start": "node ./bin/www",
 		"start dev": "nodemon ./bin/www",
-		"lint": "eslint --fix ./",
+		"lint": "eslint --fix",
 		"format": "prettier -w ./"
 	},
 	"repository": {

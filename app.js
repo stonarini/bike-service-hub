@@ -1,14 +1,15 @@
-var express = require("express");
-var logger = require("morgan");
-var { initDB } = require("./database/database");
+const express = require("express");
+const logger = require("morgan");
+const { initDB } = require("./database/database");
+const initRepository = require("./repository/repository");
 
-var bikesRouter = require("./routes/bikes");
-var bikeRouter = require("./routes/bike");
+const bikesRouter = require("./routes/bikes");
+const bikeRouter = require("./routes/bike");
 
-var app = express();
+const app = express();
 
 initDB().then(DB => {
-	app.locals.DB = DB.db("bikes").collection("catalog");
+	app.locals.DB = initRepository(DB.db("bikes").collection("catalog"));
 	app.locals.DBclient = DB;
 });
 
