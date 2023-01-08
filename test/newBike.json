@@ -1,0 +1,20 @@
+{
+	"id": "3",
+	"category": "Enduro",
+	"weight": "33.5 lbs",
+	"frame": "Aluminum",
+	"fork": "Fox Rhythm Float 34",
+	"wheels": "Aluminum",
+	"price": "$2,599",
+	"wheelSize": ["27.5\\″", "29\\″"],
+	"brakes": "Hydraulic Disc",
+	"groupset": ["SLX", "Shimano"],
+	"drivetrain": "1 x 12",
+	"suspension": "Full",
+	"travel": {
+		"front": "150mm",
+		"rear": "150mm"
+	},
+	"name": "SISKIU T8",
+	"brand": "Polygon"
+}

@@ -8,9 +8,10 @@ module.exports = {
 	},
 
 	filter: (req, res) => {
-		validateBike(req.body, false);
-		req.app.locals.DB.find(req.body)
-			.then(response => res.status(200).json(response))
-			.catch(error => console.error(error));
+		if (validateBike(req.body, res, false)) {
+			req.app.locals.DB.find(req.body)
+				.then(response => res.status(200).json(response))
+				.catch(error => console.error(error));
+		}
 	},
 };

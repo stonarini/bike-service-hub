@@ -1,0 +1,42 @@
+[
+	{
+		"id": "1",
+		"category": "Crosscountry",
+		"weight": "26.2 lbs",
+		"frame": "Carbon",
+		"fork": "Cannondale Lefty Ocho",
+		"wheels": "Aluminum",
+		"price": "$4,500",
+		"wheelSize": ["29\\″"],
+		"brakes": "Hydraulic Disc",
+		"groupset": ["GX Eagle", "NX Eagle"],
+		"drivetrain": "1 x 12",
+		"suspension": "Full",
+		"travel": {
+			"front": "100mm",
+			"rear": "100mm"
+		},
+		"name": "Scalpel-Si Carbon 4",
+		"brand": "Cannondale"
+	},
+	{
+		"id": "2",
+		"category": "Crosscountry",
+		"weight": "24.0 lbs",
+		"frame": "Carbon",
+		"fork": "Fox Factory Float 32",
+		"wheels": "Aluminum",
+		"price": "$4,825",
+		"wheelSize": ["29\\″"],
+		"brakes": "Hydraulic Disc",
+		"groupset": ["XT"],
+		"drivetrain": "1 x 12",
+		"suspension": "Full",
+		"travel": {
+			"front": "100mm",
+			"rear": "95mm"
+		},
+		"name": "SCARP MASTER",
+		"brand": "KTM"
+	}
+]

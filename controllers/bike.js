@@ -9,18 +9,20 @@ module.exports = {
 	},
 
 	create: (req, res) => {
-		validateBike(req.body);
-		req.app.locals.DB.create(req.body)
-			.then(r => (r.insertedId ? res.status(201).json({ created: req.body.id }) : res.status(500).json({ error: "error creating bike" })))
-			.catch(error => console.error(error));
+		if (validateBike(req.body, res)) {
+			req.app.locals.DB.create(req.body)
+				.then(r => (r.insertedId ? res.status(201).json({ created: req.body.id }) : res.status(500).json({ error: "error creating bike" })))
+				.catch(error => console.error(error));
+		}
 	},
 
 	update: (req, res) => {
 		const id = req.params.id;
-		validateBike(req.body, false);
-		req.app.locals.DB.update(id, req.body)
-			.then(r => (r.modifiedCountbike ? res.status(200).json({ updated: id }) : res.status(404).json({ error: "not found" })))
-			.catch(error => console.error(error));
+		if (validateBike(req.body, res, false)) {
+			req.app.locals.DB.update(id, req.body)
+				.then(r => (r.modifiedCount ? res.status(200).json({ updated: id }) : res.status(404).json({ error: "not found" })))
+				.catch(error => console.error(error));
+		}
 	},
 
 	delete: (req, res) => {
