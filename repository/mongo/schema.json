@@ -1,7 +1,7 @@
 {
 	"$jsonSchema": {
 		"type": "object",
-		"required": ["id", "category", "weight", "frame", "fork", "wheels", "price", "wheelSize", "brakes", "groupset", "drivetrain", "suspension", "travel", "name", "brand"],
+		"required": ["id", "category", "weight", "frame", "fork", "wheels", "price", "wheelsize", "brakes", "groupset", "drivetrain", "suspension", "travel", "name", "brand"],
 		"additionalProperties": false,
 		"properties": {
 			"_id": {},
@@ -33,7 +33,7 @@
 				"type": "string",
 				"description": "Bike's Price"
 			},
-			"wheelSize": {
+			"wheelsize": {
 				"type": "array",
 				"items": {
 					"type": "string",

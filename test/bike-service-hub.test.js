@@ -14,8 +14,15 @@ const config = {
 };
 
 afterAll(async () => {
-	await testApp.locals.DBclient.db("test-bikes").collection("catalog").drop();
-	testApp.locals.DBclient.close();
+	await testApp.locals.DB.drop();
+	await new Promise(resolve => {
+		setTimeout(() => {
+			resolve(true);
+		}, 1000);
+	});
+
+	let driver = process.env.DRIVER == "mongo" ? "close" : "end";
+	testApp.locals.DBclient[driver]();
 });
 
 beforeAll(async () => {
@@ -25,7 +32,7 @@ beforeAll(async () => {
 			resolve(true);
 		}, 1000);
 	});
-	testApp.locals.DBclient.db("test-bikes").collection("catalog").insertMany(JSON.parse(allBikes));
+	await testApp.locals.DB.createMany(JSON.parse(allBikes));
 });
 
 describe("Bikes Routes", bikesTest.bind(config));

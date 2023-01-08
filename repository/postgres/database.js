@@ -10,10 +10,9 @@ const client = new Client({
 const fs = require("fs");
 const schema = fs.readFileSync("./repository/postgres/schema.sql", "utf8");
 const { initRepository } = require("./repository");
-const { create } = require("domain");
 
 async function initDB() {
-	const dbTable = process.env.TEST ? "TEST-" + process.env.DBTABLE.toUpperCase() : process.env.DBTABLE.toUpperCase();
+	const dbTable = process.env.TEST ? "TEST_" + process.env.DBTABLE.toUpperCase() : process.env.DBTABLE.toUpperCase();
 	await client.connect();
 	let createTableQuery = schema.replaceAll("${dbTable}", dbTable);
 	await client.query(createTableQuery);

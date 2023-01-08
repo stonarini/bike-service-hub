@@ -1,6 +1,7 @@
+require("dotenv").config();
 const express = require("express");
 const logger = require("morgan");
-const { initDB } = require("./repository/mongo/database");
+const { initDB } = require(`./repository/${process.env.DRIVER}/database`);
 
 const bikesRouter = require("./routes/bikes");
 const bikeRouter = require("./routes/bike");

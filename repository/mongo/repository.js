@@ -24,6 +24,14 @@ module.exports = {
 			delete: id => {
 				return DB.deleteOne({ id });
 			},
+
+			createMany: objs => {
+				return DB.insertMany(objs);
+			},
+
+			drop: () => {
+				DB.drop();
+			},
 		};
 	},
 };
