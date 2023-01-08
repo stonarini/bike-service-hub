@@ -5,8 +5,6 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 const schema = require("./schema.json");
 const { initRepository } = require("./repository");
 
-let DB;
-
 async function initDB() {
 	const dbName = process.env.TEST ? "test-" + process.env.DBNAME : process.env.DBNAME;
 	await client.connect();

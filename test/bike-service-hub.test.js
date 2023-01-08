@@ -1,4 +1,5 @@
 const request = require("supertest");
+process.env.TEST = true;
 const testApp = require("../app");
 const allBikes = JSON.stringify(require("./allBikes.json"));
 const newBike = JSON.stringify(require("./newBike.json"));
@@ -18,7 +19,6 @@ afterAll(async () => {
 });
 
 beforeAll(async () => {
-	process.env.TEST = true;
 	config.router = request(testApp);
 	await new Promise(resolve => {
 		setTimeout(() => {
