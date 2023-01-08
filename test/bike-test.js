@@ -26,7 +26,7 @@ module.exports = function () {
 	});
 
 	test("PUT does not find the bike", async () => {
-		let res = await this.router.put("/bike/999999").send({ frame: "Aluminum" });
+		let res = await this.router.put("/bike/999999").send({ frame: "Carbon" });
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(404);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
@@ -42,7 +42,7 @@ module.exports = function () {
 	});
 
 	test("PUT updates a bike", async () => {
-		let res = await this.router.put("/bike/" + id).send({ frame: "Aluminum" });
+		let res = await this.router.put("/bike/" + id).send({ frame: "Carbon" });
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
@@ -55,7 +55,7 @@ module.exports = function () {
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
 		let updatedBike = JSON.parse(this.newBike);
-		updatedBike.frame = "Aluminum";
+		updatedBike.frame = "Carbon";
 		expect(body).toEqual(updatedBike);
 	});
 

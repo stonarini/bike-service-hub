@@ -16,7 +16,7 @@ module.exports = function () {
 	});
 
 	test("/filter gets one match", async () => {
-		let res = await this.router.post("/bikes/filter").send({ name: "SISKIU T8" }).set("Content-Type", "application/json");
+		let res = await this.router.post("/bikes/filter").send({ name: "Scalpel-Si Carbon 4" }).set("Content-Type", "application/json");
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
@@ -25,7 +25,7 @@ module.exports = function () {
 	});
 
 	test("/filter gets more than one match", async () => {
-		let res = await this.router.post("/bikes/filter").send({ frame: "Aluminum" }).set("Content-Type", "application/json");
+		let res = await this.router.post("/bikes/filter").send({ frame: "Carbon" }).set("Content-Type", "application/json");
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));

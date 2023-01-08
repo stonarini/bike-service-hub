@@ -20,9 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/bikes", bikesRouter);
 app.use("/bike", bikeRouter);
 
-// catch 404 and forward to error handler
 app.use(function (req, res) {
-	res.status(404).json();
+	res.status(404).json({ error: "not found" });
 });
 
 module.exports = app;
