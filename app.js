@@ -9,7 +9,7 @@ const bikeRouter = require("./routes/bike");
 const app = express();
 
 initDB().then(DB => {
-	app.locals.DB = initRepository(DB.db("bikes").collection("catalog"));
+	app.locals.DB = initRepository(DB.db(process.env.TEST ? "test-bikes" : "bikes").collection("catalog"));
 	app.locals.DBclient = DB;
 });
 
