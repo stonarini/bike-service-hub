@@ -1,4 +1,4 @@
-const schema = require("../database/schema.json");
+const schema = require("../repository/mongo/schema.json");
 
 // strict ? body must have all required bike's keys : body must have only existing keys
 function validateBike(req, res, next) {

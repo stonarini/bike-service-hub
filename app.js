@@ -1,7 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
-const { initDB } = require("./database/database");
-const initRepository = require("./repository/repository");
+const { initDB } = require("./repository/mongo/database");
 
 const bikesRouter = require("./routes/bikes");
 const bikeRouter = require("./routes/bike");
@@ -9,8 +8,8 @@ const bikeRouter = require("./routes/bike");
 const app = express();
 
 initDB().then(DB => {
-	app.locals.DB = initRepository(DB.db(process.env.TEST ? "test-bikes" : "bikes").collection("catalog"));
-	app.locals.DBclient = DB;
+	app.locals.DB = DB.repository;
+	app.locals.DBclient = DB.client;
 });
 
 app.use(logger("dev"));
