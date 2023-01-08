@@ -1,0 +1,42 @@
+[
+	{
+		"id": "1",
+		"category": "Enduro",
+		"weight": "33.5 lbs",
+		"frame": "Aluminum",
+		"fork": "Fox Rhythm Float 34",
+		"wheels": "Aluminum",
+		"price": "$2,599",
+		"wheelSize": ["27.5\\″", "29\\″"],
+		"brakes": "Hydraulic Disc",
+		"groupset": ["SLX", "Shimano"],
+		"drivetrain": "1 x 12",
+		"suspension": "Full",
+		"travel": {
+			"front": "150mm",
+			"rear": "150mm"
+		},
+		"name": "SISKIU T8",
+		"brand": "Polygon"
+	},
+	{
+		"id": "2",
+		"category": "Trail",
+		"weight": "-",
+		"frame": "Aluminum",
+		"fork": "RockShox 35 Silver",
+		"wheels": "Aluminum",
+		"price": "$2,800",
+		"wheelSize": ["29\\″"],
+		"brakes": "Hydraulic Disc",
+		"groupset": ["SX Eagle"],
+		"drivetrain": "1 x 12",
+		"suspension": "Full",
+		"travel": {
+			"front": "140mm",
+			"rear": "130mm"
+		},
+		"name": "Stumpjumper Alloy",
+		"brand": "Specialized"
+	}
+]
