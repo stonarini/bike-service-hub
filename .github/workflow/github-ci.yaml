@@ -1,0 +1,24 @@
+name: bike-service-hub
+
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Prepare Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "18.x"
+            - name: Install Dependencies
+            - run: npm ci
+            - name: Run Tests
+            - run: npm test
+              env:
+                  DBUSER: ${{ secrets.DBUSER }}
+                  PASSWORD: ${{ secrets.PASSWORD }}
+                  DBNAME: ${{ secrets.DBNAME }}
+                  DBTABLE: ${{ secrets.DBTABLE }}
+                  DRIVER: ${{ secrets.DRIVER }}
