@@ -30,7 +30,7 @@ beforeAll(async () => {
 	await new Promise(resolve => {
 		setTimeout(() => {
 			resolve(true);
-		}, 1000);
+		}, 2500);
 	});
 	await testApp.locals.DB.createMany(JSON.parse(allBikes));
 });

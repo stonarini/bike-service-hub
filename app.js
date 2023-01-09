@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const logger = require("morgan");
 const { initDB } = require(`./repository/${process.env.DRIVER}/database`);
 
 const bikesRouter = require("./routes/bikes");
@@ -13,7 +12,6 @@ initDB().then(DB => {
 	app.locals.DBclient = DB.client;
 });
 
-app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
