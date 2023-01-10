@@ -31,14 +31,14 @@ jobs:
             - name: Login to DockerHub
               uses: docker/login-action@v2
               with:
-                  username: ${{ github.repository.owner }}
+                  username: ${{ github.repository_owner }}
                   password: ${{ secrets.DOCKERHUB_TOKEN }}
 
             - name: Build and Push to DockerHub
               uses: docker/build-push-action@v3
               with:
                   push: true
-                  tags: ${{ github.repository }}:ci-${{ github.run.number }}
+                  tags: ${{ github.repository }}:ci-${{ github.run_id }}
                   secrets: |
                       "DBUSER: ${{ secrets.DBUSER }}"
                       "PASSWORD: ${{ secrets.PASSWORD }}"
