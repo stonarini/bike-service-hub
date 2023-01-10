@@ -1,0 +1,10 @@
+.githooks/
+.github/
+coverage/
+node_modules/
+test/
+.editorconfig
+.env
+.eslintrc
+.prettierrc
+.gitignore
