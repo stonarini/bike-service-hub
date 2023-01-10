@@ -38,7 +38,7 @@ jobs:
               uses: docker/build-push-action@v3
               with:
                   push: true
-                  tags: ${{ github_repository }}:ci-${{ github.run.number }}
+                  tags: ${{ github.repository }}:ci-${{ github.run.number }}
                   secrets: |
                       "DBUSER: ${{ secrets.DBUSER }}"
                       "PASSWORD: ${{ secrets.PASSWORD }}"
