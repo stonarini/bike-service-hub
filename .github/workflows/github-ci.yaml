@@ -55,7 +55,9 @@ jobs:
                   SSH_KEY: ${{ secrets.SSH_KEY }}
 
             - name: Update Server's Docker Image
-              run: ssh -i ~/.ssh/ssh.key "$SSH_USER"@"$SSH_HOST" 'cd docker && docker-compose pull && docker-compose up -d --no-deps bike-service-hub'
+              run: |
+                  echo "$SSH_USER@$SSH_HOST"
+                  ssh -i ~/.ssh/ssh.key "$SSH_USER@$SSH_HOST" 'cd docker && docker-compose pull && docker-compose up -d --no-deps bike-service-hub'
               env:
                   SSH_USER: ${{ secrets.SSH_USER }}
                   SSH_HOST: ${{ secrets.SSH_HOST }}
