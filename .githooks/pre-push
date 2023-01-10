@@ -1,0 +1,11 @@
+#!/bin/sh
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+if [ "$BRANCH" = "main" ]; then
+	npm run test
+	if [ $? -ne 0 ]; then
+		echo "There Are Tests Failures"
+		echo "Not PUSHING to 'main'"
+		exit 1
+	fi
+fi
