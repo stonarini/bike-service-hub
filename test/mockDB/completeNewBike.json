@@ -1,5 +1,5 @@
 {
-	"id": "3",
+	"_id": "000000000000000000000005",
 	"category": "Enduro",
 	"weight": "33.5 lbs",
 	"frame": "Aluminum",
@@ -16,5 +16,7 @@
 		"rear": "150mm"
 	},
 	"name": "SISKIU T8",
-	"brand": "Polygon"
+	"brand": "Polygon",
+	"year": "2022",
+	"stores": []
 }

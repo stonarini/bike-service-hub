@@ -1,16 +1,13 @@
 require("dotenv").config();
 const express = require("express");
-const { initDB } = require(`./repository/${process.env.DRIVER}/database`);
+const { initDB } = require("./db/database");
 
 const bikesRouter = require("./routes/bikes");
 const bikeRouter = require("./routes/bike");
 
 const app = express();
 
-initDB().then(DB => {
-	app.locals.DB = DB.repository;
-	app.locals.DBclient = DB.client;
-});
+initDB();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

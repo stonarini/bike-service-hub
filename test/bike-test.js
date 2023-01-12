@@ -1,5 +1,5 @@
 module.exports = function () {
-	let id = JSON.parse(this.newBike).id;
+	let id = JSON.parse(this.newBike)._id;
 
 	test("POST errors if the new bike is not correct", async () => {
 		let res = await this.router.post("/bike/new").send({ bike: "Wrong Bike" });
@@ -22,15 +22,15 @@ module.exports = function () {
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
-		expect(body).toEqual(JSON.parse(this.newBike));
+		expect(body).toEqual(JSON.parse(this.completeNewBike));
 	});
 
 	test("PUT does not find the bike", async () => {
 		let res = await this.router.put("/bike/999999").send({ frame: "Carbon" });
 		const body = JSON.parse(res.text);
-		expect(res.statusCode).toEqual(404);
+		expect(res.statusCode).toEqual(401);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
-		expect(body).toEqual({ error: "not found" });
+		expect(body).toEqual({ error: "invalid id" });
 	});
 
 	test("PUT errors if the request is not correct", async () => {
@@ -54,7 +54,7 @@ module.exports = function () {
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
-		let updatedBike = JSON.parse(this.newBike);
+		let updatedBike = JSON.parse(this.completeNewBike);
 		updatedBike.frame = "Carbon";
 		expect(body).toEqual(updatedBike);
 	});
@@ -62,9 +62,9 @@ module.exports = function () {
 	test("DELETE does not find the bike", async () => {
 		let res = await this.router.delete("/bike/999999");
 		const body = JSON.parse(res.text);
-		expect(res.statusCode).toEqual(404);
+		expect(res.statusCode).toEqual(401);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
-		expect(body).toEqual({ error: "not found" });
+		expect(body).toEqual({ error: "invalid id" });
 	});
 
 	test("DELETE deletes the bike", async () => {

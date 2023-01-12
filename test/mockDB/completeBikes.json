@@ -1,42 +1,63 @@
 [
 	{
-		"id": "1",
+		"_id": "000000000000000000000003",
+		"name": "Scalpel-Si Carbon 4",
+		"brand": "Cannondale",
+		"year": "2020",
 		"category": "Crosscountry",
 		"weight": "26.2 lbs",
 		"frame": "Carbon",
 		"fork": "Cannondale Lefty Ocho",
 		"wheels": "Aluminum",
 		"price": "$4,500",
-		"wheelsize": ["29\\″"],
 		"brakes": "Hydraulic Disc",
-		"groupset": ["GX Eagle", "NX Eagle"],
 		"drivetrain": "1 x 12",
 		"suspension": "Full",
+		"wheelsize": ["29\\″"],
+		"groupset": ["GX Eagle", "NX Eagle"],
 		"travel": {
 			"front": "100mm",
 			"rear": "100mm"
 		},
-		"name": "Scalpel-Si Carbon 4",
-		"brand": "Cannondale"
+		"stores": [
+			{
+				"name": "Store1",
+				"geoloc": "xy",
+				"stock": "2"
+			},
+			{
+				"name": "Store2",
+				"geoloc": "xy",
+				"stock": "3"
+			}
+		]
 	},
 	{
-		"id": "2",
+		"_id": "000000000000000000000004",
+		"name": "SCARP MASTER",
+		"brand": "KTM",
+		"year": "2021",
 		"category": "Crosscountry",
 		"weight": "24.0 lbs",
 		"frame": "Carbon",
 		"fork": "Fox Factory Float 32",
 		"wheels": "Aluminum",
 		"price": "$4,825",
-		"wheelsize": ["29\\″"],
 		"brakes": "Hydraulic Disc",
-		"groupset": ["XT"],
 		"drivetrain": "1 x 12",
 		"suspension": "Full",
+		"wheelsize": ["29\\″"],
+		"groupset": ["XT"],
 		"travel": {
 			"front": "100mm",
 			"rear": "95mm"
 		},
-		"name": "SCARP MASTER",
-		"brand": "KTM"
+		"stores": [
+			{
+				"name": "Store2",
+				"geoloc": "xy",
+				"stock": "2"
+			}
+		]
 	}
 ]

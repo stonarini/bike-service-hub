@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/catalog", bikesController.catalog);
 
-router.use("/filter", validateBike.bind({ strict: false }));
+router.post("/filter", validateBike.bind({ strict: false }));
 router.post("/filter", bikesController.filter);
 
 module.exports = router;

@@ -20,7 +20,7 @@ module.exports = function () {
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
-		expect(body.length).toEqual(1);
+		expect(body).toHaveLength(1);
 		expect(body).toEqual([this.allBikes[0]]);
 	});
 
@@ -29,7 +29,7 @@ module.exports = function () {
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
-		expect(body.length).toEqual(2);
+		expect(body).toHaveLength(2);
 		expect(body).toEqual(this.allBikes);
 	});
 };
