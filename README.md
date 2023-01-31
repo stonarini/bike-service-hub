@@ -1,20 +1,54 @@
 # bike-service-hub
+
 Express.js REST API. Fully configured code style with Prettier, ESlint and editorconfig. Entire CI/CD pipeline with pre-commit and pre-push hooks + github action to create a Docker image and deploy it in a server
 
+---
+
 ## Project Information
-This is a bike aggregator that lets you manage bike, bike rentals and all the process of renting a bike.  
+
+This is a bike aggregator that lets you manage bike, bike rentals and all the process of renting a bike.
 The main focus was to practive TDD and CI/CD best practices, as well as utilizing all the utilities that ES6 provides.
 Javascript's classes where optional, so I opted to go the ES5 way.
 
+---
+
 ## ES6 snippets
 
+Here we can see an example of arrow function. In this example there is nothing special to it that makes it different from a normal functions.  
+![](docs/arrow-function.png)
+
+Here we have a clear example of an async promise. In this code we can clearly see how promises work. In an async function we can wait for a promis to resolve. In this case this case we wait for a timeout of 2.5s  
+![](docs/async-await.png)
+
+In these tests we use bind to "bind" the configuration to the test function. The test function will have all the config params in it's _this_ object.  
+![](docs/bind-test.png)
+
+In the DB connection we use an object with a reference to the DB object. This is because we do not wait for the DB to be connected. Instead, when we call the initDB function the DB is loaded in the connection object and it's available in all the app. So we instanciate the DB only once.  
+![](docs/db-connection.png)
+
+Here we can see an example of destructuring, importing only the connection and closeDB object of the export of the database.js file.  
+![](docs/destructuring.png)
+
+Here we can see a middleware example. In this middleware we bind an object to _simulate_ parameters, since we cannot pass parameters directly. The middleware will have access to the strict _parameter_ in it's this object.  
+![](docs/middleware-bind.png)
+
+Here we can see an understanding of object reference. If you use the mongodb driver to insert an object, the driver will modify the object with the _\_id_ key, and since it's a reference, your local object will change as well. To have an object created and not have it changed by the mongodb driver, I stringify the imported object and parse it when I need it, creating a copy for the mongo driver, and one for me.  
+![](docs/object-references.png)
+
+---
+
 ## Configuration
+
 Configure the project with a .env
+
 ```
-TEST=
+DBUSER=dbuser
+PASSWORD=password
+DBNAME=dbname
 ```
 
 Then install the dependencies and start the project:
+
 ```sh
 $ npm i
 $ npm run dev
