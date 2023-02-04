@@ -19,7 +19,6 @@ module.exports = function () {
 
 	test("GET gets the correct bike", async () => {
 		let res = await this.router.get("/bike/" + id);
-		console.log(res.text);
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));

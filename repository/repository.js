@@ -40,17 +40,18 @@ function repository(mainModel, relationModel) {
 		},
 		findById: function (id) {
 			return new Promise(async res => {
-				res((await this.find({ _id: id }))[0]);
+				res((await this.find({ _id: ObjectId(id) }))[0]);
 			});
 		},
 		create: obj => {
+			obj._id = ObjectId(obj._id);
 			return connection.DB.collection(mainModel).insertOne(obj);
 		},
 		update: async (id, obj) => {
-			return connection.DB.collection(mainModel).updateOne({ _id: id }, { $set: obj });
+			return connection.DB.collection(mainModel).updateOne({ _id: ObjectId(id) }, { $set: obj });
 		},
 		delete: id => {
-			return connection.DB.collection(mainModel).deleteOne({ _id: id });
+			return connection.DB.collection(mainModel).deleteOne({ _id: ObjectId(id) });
 		},
 		exist: id => {
 			return Boolean(connection.DB.collection(mainModel).findOne({ _id: ObjectId(id) }));
