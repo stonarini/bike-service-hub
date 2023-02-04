@@ -1,4 +1,4 @@
-const bikesRepository = require("../repository/bikesRepository");
+const { bikesRepository } = require("../repository/bikesRepository");
 
 // strict ? bike should exist : bike shouldn't exist
 function bikeExists(req, res, next) {

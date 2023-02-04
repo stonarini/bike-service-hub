@@ -1,4 +1,4 @@
-const bikesRepository = require("../repository/bikesRepository");
+const { bikesRepository } = require("../repository/bikesRepository");
 
 module.exports = {
 	catalog: (req, res) => {

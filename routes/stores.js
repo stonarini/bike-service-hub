@@ -1,11 +1,11 @@
 const express = require("express");
-const bikesController = require("../controllers/bikes");
+const storesController = require("../controllers/stores");
 const { validate } = require("../middleware/validation");
 const router = express.Router();
 
-router.get("/all", bikesController.catalog);
+router.get("/all", storesController.all);
 
-router.post("/filter", validate.bind({ model: "stores", strict: false }));
-router.post("/filter", bikesController.filter);
+router.post("/filter", validate.bind({ model: "store", strict: false }));
+router.post("/filter", storesController.filter);
 
 module.exports = router;

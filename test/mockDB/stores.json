@@ -1,12 +1,12 @@
 [
 	{
 		"_id": "000000000000000000000001",
-		"name": "Store1",
+		"name": "Velo Mallorca",
 		"geoloc": "xy"
 	},
 	{
 		"_id": "000000000000000000000002",
-		"name": "Store2",
+		"name": "Ponent Bike",
 		"geoloc": "xy"
 	}
 ]

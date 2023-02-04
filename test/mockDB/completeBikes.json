@@ -21,12 +21,12 @@
 		},
 		"stores": [
 			{
-				"name": "Store1",
+				"name": "Velo Mallorca",
 				"geoloc": "xy",
 				"stock": "2"
 			},
 			{
-				"name": "Store2",
+				"name": "Ponent Bike",
 				"geoloc": "xy",
 				"stock": "3"
 			}
@@ -54,7 +54,7 @@
 		},
 		"stores": [
 			{
-				"name": "Store2",
+				"name": "Ponent Bike",
 				"geoloc": "xy",
 				"stock": "2"
 			}

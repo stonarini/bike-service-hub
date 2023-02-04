@@ -1,5 +1,5 @@
 {
-	"bikes": {
+	"bike": {
 		"$jsonSchema": {
 			"type": "object",
 			"required": ["_id", "category", "weight", "frame", "fork", "wheels", "price", "wheelsize", "brakes", "groupset", "drivetrain", "suspension", "travel", "name", "brand", "year"],
@@ -88,7 +88,7 @@
 			}
 		}
 	},
-	"stores": {
+	"store": {
 		"$jsonSchema": {
 			"type": "object",
 			"required": ["name", "geoloc"],
