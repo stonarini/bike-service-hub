@@ -2,6 +2,8 @@
 
 Express.js REST API. Fully configured code style with Prettier, ESlint and editorconfig. Entire CI/CD pipeline with pre-commit and pre-push hooks + github action to create a Docker image and deploy it in a server
 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/20110670-ad4b05cc-465e-4d22-a420-c0c79419fc34?action=collection%2Ffork&collection-url=entityId%3D20110670-ad4b05cc-465e-4d22-a420-c0c79419fc34%26entityType%3Dcollection%26workspaceId%3D4eabad42-d835-4b53-9df6-73f1c36b88ee)
+
 ---
 
 ## Project Information
