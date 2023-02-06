@@ -19,4 +19,8 @@ module.exports = {
 		const id = req.params.id;
 		bikesRepository.delete(id).then(r => (r.deletedCount ? res.status(200).json({ deleted: id }) : res.status(404).json({ error: "not found" })));
 	},
+
+	rent: (req, res) => {
+		bikesRepository.rent(req).then(r => (r.insertedId ? res.status(201).json({ reserveID: r.insertedId }) : res.status(500).json({ error: "error creating reserve" })));
+	},
 };

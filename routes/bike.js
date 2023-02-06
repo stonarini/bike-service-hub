@@ -7,6 +7,8 @@ const router = express.Router();
 router.post("/new", validate.bind({ model: "bike", strict: true }));
 router.post("/new", bikeController.create);
 
+router.post("/rent", bikeController.rent);
+
 router.use("/:id", exists.bind({ model: "bike" }));
 router.get("/:id", bikeController.findById);
 

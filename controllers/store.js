@@ -19,4 +19,9 @@ module.exports = {
 		const id = req.params.id;
 		storesRepository.delete(id).then(r => (r.deletedCount ? res.status(200).json({ deleted: id }) : res.status(404).json({ error: "not found" })));
 	},
+
+	addBike: (req, res) => {
+		const id = req.params.id;
+		storesRepository.addBike(id).then(r => (r.modifiedCount ? res.status(200).json({ modified: id }) : res.status(404).json({ error: "not found" })));
+	},
 };
