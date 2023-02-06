@@ -3,28 +3,34 @@ process.env.TEST = true;
 const testApp = require("../app");
 
 const bikesTest = require("./bikes-test");
-const storesTest = require("./stores-test");
 const bikeTest = require("./bike-test");
+const storesTest = require("./stores-test");
+const storeTest = require("./store-test");
 const { initMockDB, closeMockDB } = require("./mockDB");
-const bikes = JSON.stringify(require("./mockDB/completeBikes.json"));
-const stores = require("./mockDB/completeStores.json");
-const newBike = JSON.stringify(require("./mockDB/newBike.json"));
-const complNewBike = JSON.stringify(require("./mockDB/completeNewBike.json"));
 
-const config = {
-	allBikes: JSON.parse(bikes),
-	newBike: newBike,
-	completeNewBike: complNewBike,
-	router: undefined,
-	allStores: stores,
+const allCompleteBikes = require("./mockDB/completeBikes.json");
+const newBike = JSON.stringify(require("./mockDB/newBike.json"));
+const completeNewBike = JSON.stringify(require("./mockDB/completeNewBike.json"));
+const allCompleteStores = require("./mockDB/completeStores.json");
+const newStore = JSON.stringify(require("./mockDB/newStore.json"));
+const completeNewStore = JSON.stringify(require("./mockDB/completeNewStore.json"));
+
+const bikeConfig = {
+	allCompleteModels: allCompleteBikes,
+	newModel: newBike,
+	completeNewModel: completeNewBike,
 };
 
-afterAll(async () => {
-	await closeMockDB();
-});
+const storeConfig = {
+	allCompleteModels: allCompleteStores,
+	newModel: newStore,
+	completeNewModel: completeNewStore,
+};
 
-beforeAll(async () => {
-	config.router = request(testApp);
+beforeAll(async function () {
+	let router = request(testApp);
+	bikeConfig.router = router;
+	storeConfig.router = router;
 	await new Promise(resolve => {
 		setTimeout(() => {
 			resolve(true);
@@ -33,8 +39,11 @@ beforeAll(async () => {
 	await initMockDB();
 });
 
-describe("Bikes Routes", bikesTest.bind(config));
+describe("Bikes Routes", bikesTest.bind(bikeConfig));
+describe("Bike Routes", bikeTest.bind(bikeConfig));
+describe("Stores Routes", storesTest.bind(storeConfig));
+describe("Store Routes", storeTest.bind(storeConfig));
 
-describe("Bike Routes", bikeTest.bind(config));
-
-describe("Stores Routes", storesTest.bind(config));
+afterAll(async () => {
+	await closeMockDB();
+});

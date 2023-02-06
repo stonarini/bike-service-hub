@@ -91,7 +91,7 @@
 	"store": {
 		"$jsonSchema": {
 			"type": "object",
-			"required": ["name", "geoloc"],
+			"required": ["_id", "name", "geoloc"],
 			"additionalProperties": false,
 			"properties": {
 				"_id": {},

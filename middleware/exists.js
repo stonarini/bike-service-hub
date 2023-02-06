@@ -1,17 +1,17 @@
 const { bikesRepository } = require("../repository/bikesRepository");
+const { storesRepository } = require("../repository/storesRepository");
 
-// strict ? bike should exist : bike shouldn't exist
-function bikeExists(req, res, next) {
+function exists(req, res, next) {
 	const id = req.params.id;
 	if (id.length != 24) {
 		res.status(401).json({ error: "invalid id" });
 		return;
 	}
-	if (bikesRepository.exist(id)) {
+	if ((this.model == "bike" && bikesRepository.exist(id)) || (this.model == "store" && storesRepository.exist(id))) {
 		next();
 	} else {
 		res.status(404).json({ error: "not found" });
 	}
 }
 
-module.exports = { bikeExists };
+module.exports = { exists };

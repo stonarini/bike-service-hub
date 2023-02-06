@@ -18,23 +18,13 @@ function repository(mainModel, relationModel) {
 								$map: {
 									input: "$" + relationModel + "s",
 									in: {
-										$mergeObjects: [
-											"$$this",
-											{
-												stock: {
-													$getField: {
-														field: "stock",
-														input: { $arrayElemAt: ["$info", { $indexOfArray: ["$info." + relationModel + "_id", "$$this._id"] }] },
-													},
-												},
-											},
-										],
+										$mergeObjects: ["$$this", { $arrayElemAt: ["$info", { $indexOfArray: ["$info." + relationModel + "_id", "$$this._id"] }] }],
 									},
 								},
 							},
 						},
 					},
-					{ $project: { info: 0, [relationModel + "s._id"]: 0 } },
+					{ $project: { info: 0, [relationModel + "s._id"]: 0, [relationModel + "s.store_id"]: 0, [relationModel + "s.bike_id"]: 0 } },
 				])
 				.toArray();
 		},

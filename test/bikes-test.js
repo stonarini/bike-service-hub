@@ -4,7 +4,7 @@ module.exports = function () {
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
-		expect(body).toEqual(this.allBikes);
+		expect(body).toEqual(this.allCompleteModels);
 	});
 
 	test("/filter gets no match", async () => {
@@ -21,7 +21,7 @@ module.exports = function () {
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
 		expect(body).toHaveLength(1);
-		expect(body).toEqual([this.allBikes[0]]);
+		expect(body).toEqual([this.allCompleteModels[0]]);
 	});
 
 	test("/filter gets more than one match", async () => {
@@ -30,6 +30,6 @@ module.exports = function () {
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
 		expect(body).toHaveLength(2);
-		expect(body).toEqual(this.allBikes);
+		expect(body).toEqual(this.allCompleteModels);
 	});
 };
