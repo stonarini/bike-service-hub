@@ -1,4 +1,5 @@
 const { bikesRepository } = require("../repository/bikesRepository");
+const { bikesService } = require("../service/bikeService");
 
 module.exports = {
 	findById: (req, res) => {
@@ -21,6 +22,6 @@ module.exports = {
 	},
 
 	rent: (req, res) => {
-		bikesRepository.rent(req).then(r => (r.insertedId ? res.status(201).json({ reserveID: r.insertedId }) : res.status(500).json({ error: "error creating reserve" })));
+		bikesService.rentBike(req.body).then(r => (r ? res.status(201).json({ message: "reserved" }) : res.status(409).json({ error: "selected dates are unavailable" })));
 	},
 };

@@ -6,7 +6,7 @@ module.exports = {
 		...repository("bike", "store"),
 
 		rent: obj => {
-			connection.DB.collection("rented_bikes").insertOne(obj);
+			return connection.DB.collection("rented_bikes").insertOne(obj);
 		},
 	},
 };
