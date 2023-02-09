@@ -5,6 +5,7 @@
 		"geoloc": "xy",
 		"bikes": [
 			{
+				"_id": "000000000000000000000003",
 				"name": "Scalpel-Si Carbon 4",
 				"brand": "Cannondale",
 				"year": "2020",
@@ -23,7 +24,7 @@
 					"front": "100mm",
 					"rear": "100mm"
 				},
-				"stock": "2"
+				"inventory": "2"
 			}
 		]
 	},
@@ -33,6 +34,7 @@
 		"geoloc": "xy",
 		"bikes": [
 			{
+				"_id": "000000000000000000000003",
 				"name": "Scalpel-Si Carbon 4",
 				"brand": "Cannondale",
 				"year": "2020",
@@ -51,9 +53,14 @@
 					"front": "100mm",
 					"rear": "100mm"
 				},
-				"stock": "3"
+				"inventory": "3",
+				"availability": {
+					"from": "2023-04-01T00:00:00.000Z",
+					"to": "2023-04-10T00:00:00.000Z"
+				}
 			},
 			{
+				"_id": "000000000000000000000004",
 				"name": "SCARP MASTER",
 				"brand": "KTM",
 				"year": "2021",
@@ -72,7 +79,7 @@
 					"front": "100mm",
 					"rear": "95mm"
 				},
-				"stock": "2"
+				"inventory": "2"
 			}
 		]
 	}

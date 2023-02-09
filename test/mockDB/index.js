@@ -1,19 +1,22 @@
 const { connection, closeDB } = require("../../db/database");
 
-const bikes = JSON.stringify(require("./bikes.json"));
-const stores = JSON.stringify(require("./stores.json"));
-const bikesStores = JSON.stringify(require("./bikes_stores.json"));
+const bikes = require("./bikes");
+const rents = require("./rents");
+const stores = require("./stores");
+const bikesStores = require("./bikes_stores");
 
 module.exports = {
 	initMockDB: async () => {
-		await connection.DB.collection("bike").insertMany(JSON.parse(bikes));
-		await connection.DB.collection("store").insertMany(JSON.parse(stores));
-		await connection.DB.collection("bikes_stores").insertMany(JSON.parse(bikesStores));
+		await connection.DB.collection("bike").insertMany(bikes);
+		await connection.DB.collection("store").insertMany(stores);
+		await connection.DB.collection("bikes_stores").insertMany(bikesStores);
+		await connection.DB.collection("rented_bikes").insertMany(rents);
 	},
 	closeMockDB: async () => {
 		await connection.DB.collection("bike").drop();
 		await connection.DB.collection("store").drop();
 		await connection.DB.collection("bikes_stores").drop();
+		await connection.DB.collection("rented_bikes").drop();
 		closeDB();
 	},
 };

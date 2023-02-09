@@ -1,6 +1,37 @@
 {
-	"_id": "000000000000000000000006",
-	"name": "S'Escapada",
-	"geoloc": "xy",
-	"bikes": []
+	"model": {
+		"_id": "000000000000000000000006",
+		"name": "S'Escapada",
+		"geoloc": "xy",
+		"bikes": []
+	},
+	"modelWithBike": {
+		"_id": "000000000000000000000006",
+		"name": "S'Escapada",
+		"geoloc": "xy",
+		"bikes": [
+			{
+				"_id": "000000000000000000000004",
+				"name": "SCARP MASTER",
+				"brand": "KTM",
+				"year": "2021",
+				"category": "Crosscountry",
+				"weight": "24.0 lbs",
+				"frame": "Carbon",
+				"fork": "Fox Factory Float 32",
+				"wheels": "Aluminum",
+				"price": "$4,825",
+				"brakes": "Hydraulic Disc",
+				"drivetrain": "1 x 12",
+				"suspension": "Full",
+				"wheelsize": ["29\\″"],
+				"groupset": ["XT"],
+				"travel": {
+					"front": "100mm",
+					"rear": "95mm"
+				},
+				"inventory": "3"
+			}
+		]
+	}
 }

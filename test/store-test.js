@@ -22,7 +22,7 @@ module.exports = function () {
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
-		expect(body).toEqual(JSON.parse(this.completeNewModel));
+		expect(body).toEqual(JSON.parse(this.completeNewModel).model);
 	});
 
 	test("PUT does not find the store", async () => {
@@ -54,7 +54,25 @@ module.exports = function () {
 		const body = JSON.parse(res.text);
 		expect(res.statusCode).toEqual(200);
 		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
-		let updatedStore = JSON.parse(this.completeNewModel);
+		let updatedStore = JSON.parse(this.completeNewModel).model;
+		updatedStore.geoloc = "yx";
+		expect(body).toEqual(updatedStore);
+	});
+
+	test("Assign a bike to a store", async () => {
+		let res = await this.router.put("/store/" + id + "/addBike").send({ bike_id: "000000000000000000000004", inventory: "3" });
+		const body = JSON.parse(res.text);
+		expect(res.statusCode).toEqual(201);
+		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
+		expect(body).toEqual({ modified: id });
+	});
+
+	test("GET find the store with the bike", async () => {
+		let res = await this.router.get("/store/" + id);
+		const body = JSON.parse(res.text);
+		expect(res.statusCode).toEqual(200);
+		expect(res.get("Content-Type")).toEqual(expect.stringMatching("/json"));
+		let updatedStore = JSON.parse(this.completeNewModel).modelWithBike;
 		updatedStore.geoloc = "yx";
 		expect(body).toEqual(updatedStore);
 	});
