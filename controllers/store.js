@@ -22,6 +22,6 @@ module.exports = {
 
 	addBike: (req, res) => {
 		const id = req.params.id;
-		storesRepository.addBike(id).then(r => (r.modifiedCount ? res.status(200).json({ modified: id }) : res.status(404).json({ error: "not found" })));
+		storesRepository.addBike(id, req.body).then(r => (r.modifiedCount || r.upsertedCount ? res.status(201).json({ modified: id }) : res.status(404).json({ error: "not found" })));
 	},
 };
