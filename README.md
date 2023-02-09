@@ -37,6 +37,12 @@ Here we can see a middleware example. In this middleware we bind an object to _s
 Here we can see an understanding of object reference. If you use the mongodb driver to insert an object, the driver will modify the object with the _\_id_ key, and since it's a reference, your local object will change as well. To have an object created and not have it changed by the mongodb driver, I stringify the imported object and parse it when I need it, creating a copy for the mongo driver, and one for me.  
 ![](docs/object-references.png)
 
+In the test configs I used Object.create to assign the same basic configuration (the router) as the prototype of all the different, more specific configs.  
+![](docs/objectcreate.png)
+
+Here we have an example usage of the _spread_ operator. I create an object called bike_id with the bike_id property of the body, and then the other properties are assigned to the info object.  
+![](docs/spread.png)
+
 ---
 
 ## Configuration
