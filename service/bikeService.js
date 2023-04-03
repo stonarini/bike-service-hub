@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const { bikesRepository } = require("../repository/bikesRepository");
 const { rentRepository } = require("../repository/rentRepository");
 const { storesRepository } = require("../repository/storesRepository");
@@ -49,7 +50,13 @@ async function rentBike(req) {
 			return null;
 		}
 
-		return bikesRepository.rent(req);
+        let obj = {
+            start_date: new Date(req.startDate),
+            end_date: new Date(req.endDate),
+            bike_id: new ObjectId(req.bike_id),
+            store_id: new ObjectId(req.store_id)
+        }
+		return bikesRepository.rent(obj);
 	}
 }
 

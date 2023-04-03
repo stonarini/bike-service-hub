@@ -84,6 +84,10 @@
 				"year": {
 					"type": "string",
 					"description": "Bike's Year of Creation"
+				},
+				"img": {
+					"type": "string",
+					"description": "Bike's image"
 				}
 			}
 		}
